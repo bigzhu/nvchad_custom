@@ -8,5 +8,26 @@ M.general = {
 }
 
 -- more keybinds!
+M.tabufline = {
+  plugin = true,
 
+  n = {
+    -- cycle through buffers
+    ["L"] = {
+      function()
+        require("nvchad_ui.tabufline").tabuflineNext()
+      end,
+      "Goto next buffer",
+    },
+
+    ["H"] = {
+      function()
+        require("nvchad_ui.tabufline").tabuflinePrev()
+      end,
+      "Goto prev buffer",
+    },
+
+    
+  },
+}
 return M
