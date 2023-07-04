@@ -4,10 +4,30 @@ local overrides = require "custom.configs.overrides"
 local plugins = {
 
   -- Override plugin definition options
+  -- override plugin configs
+  -- set nvim-tree mappings
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = {
+      on_attach = function(bufnr)
+        local api = require "nvim-tree.api"
 
-  {"github/copilot.vim",
-    lazy = false
+        local function opts(desc)
+          return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+        end
+
+        -- default mappings
+        api.config.mappings.default_on_attach(bufnr)
+
+        -- custom mappings
+        vim.keymap.set("n", "l", api.node.open.edit, opts "Edit")
+        vim.keymap.set("n", "h", api.node.open.edit, opts "Edit")
+        vim.keymap.set("n", "t", api.node.open.tab, opts "Tab")
+        vim.keymap.set("n", "?", api.tree.toggle_help, opts "Help")
+      end,
+    },
   },
+  { "github/copilot.vim", lazy = false },
   {
     "akinsho/flutter-tools.nvim",
     after = "nvim-lspconfig",
