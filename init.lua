@@ -5,3 +5,8 @@
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
+
+local opt = vim.opt
+-- Prevent cursor from going to the next line when moving with h,l
+opt.whichwrap = "b,s"
+
