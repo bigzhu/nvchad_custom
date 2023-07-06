@@ -26,8 +26,7 @@ M.tabufline = {
       end,
       "Goto prev buffer",
     },
-
-    
+    ["<C-f>"] = { ":SearchMD ", "Cheese search" },
   },
 }
 return M

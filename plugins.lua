@@ -2,9 +2,28 @@ local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
-
   -- Override plugin definition options
   -- override plugin configs
+
+  {
+    "jakewvincent/mkdnflow.nvim",
+    lazy=false,
+    rocks = "luautf8", -- Ensures optional luautf8 dependency is installed
+    config = function()
+      require("mkdnflow").setup()
+    end,
+  },
+  { -- obsidian
+    "epwalsh/obsidian.nvim",
+    config = function()
+      require("obsidian").setup {
+        dir = "~/cheese",
+        note_id_func = function(title)
+          return title
+        end,
+      }
+    end,
+  },
   -- set nvim-tree mappings
   {
     "nvim-tree/nvim-tree.lua",
