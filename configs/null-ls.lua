@@ -17,6 +17,8 @@ local sources = {
 
   -- cpp
   b.formatting.clang_format,
+  -- flutter
+  b.formatting.dart_format,
 }
 
 null_ls.setup {
