@@ -2,9 +2,12 @@ local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
-  -- Override plugin definition options
-  -- override plugin configs
-
+	{ -- 让 markdown 中的代码块也能用上 lsp
+		"AckslD/nvim-FeMaco.lua",
+		config = function()
+			require("femaco").setup()
+		end,
+	},
   {
     "jakewvincent/mkdnflow.nvim",
     lazy=false,
@@ -15,6 +18,7 @@ local plugins = {
   },
   { -- obsidian
     "epwalsh/obsidian.nvim",
+    lazy=false,
     config = function()
       require("obsidian").setup {
         dir = "~/cheese",
