@@ -10,3 +10,6 @@ local opt = vim.opt
 -- Prevent cursor from going to the next line when moving with h,l
 opt.whichwrap = "b,s"
 
+-- set my cheese
+local home = os.getenv "HOME"
+vim.cmd("source " .. home .. "/.config/lvim/markdown.vim")
