@@ -2,23 +2,22 @@ local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
-	{ -- 让 markdown 中的代码块也能用上 lsp
-		"AckslD/nvim-FeMaco.lua",
-		config = function()
-			require("femaco").setup()
-		end,
-	},
+  { -- 让 markdown 中的代码块也能用上 lsp
+    "AckslD/nvim-FeMaco.lua",
+    config = function()
+      require("femaco").setup()
+    end,
+  },
   {
     "jakewvincent/mkdnflow.nvim",
-    lazy=false,
-    rocks = "luautf8", -- Ensures optional luautf8 dependency is installed
+    lazy = false,
     config = function()
       require("mkdnflow").setup()
     end,
   },
   { -- obsidian
     "epwalsh/obsidian.nvim",
-    lazy=false,
+    lazy = false,
     config = function()
       require("obsidian").setup {
         dir = "~/cheese",
@@ -51,13 +50,6 @@ local plugins = {
     },
   },
   { "github/copilot.vim", lazy = false },
-  {
-    "akinsho/flutter-tools.nvim",
-    after = "nvim-lspconfig",
-    config = function()
-      require "custom.plugins.fluttertools"
-    end,
-  },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
