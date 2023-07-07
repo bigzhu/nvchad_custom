@@ -1,4 +1,4 @@
-# Example_config
+# Desc
 
-This can be used as an example custom config for NvChad, this branch is a minimal one. Do check the feature_full branch if you need all the ease in your config.
-# nvchad_custom
+This is my custom configuration based on the [NvChad](https://nvchad.com/) framework for Flutter development.
+
